@@ -1,0 +1,5 @@
+Copyright (c) 2025 Aidan McCaffery. All Rights Reserved.
+
+This repository is publicly visible for portfolio purposes only.
+No license is granted to use, copy, modify, or distribute this code
+without explicit written permission from the author.
