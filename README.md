@@ -14,7 +14,6 @@ Rather than reducing tweet content to a single sentiment score (as most prior wo
 
 The key finding: **model confidence scales monotonically with accuracy**. The top 5% of highest-confidence predictions achieve **70.4% directional accuracy** on held-out test data, beating a naive baseline by 21.1 percentage points, with a profit factor of 1.55. Results survive rigorous significance testing including block bootstrap permutation tests (p<0.0001) and 5/5 walk-forward folds across different market regimes including the 2022 crash.
 
-This outperforms the closest published benchmark ([Zou & Herremans, 2023](https://www.sciencedirect.com/science/article/abs/pii/S0957417423013404)) using **tweets alone** — without the price data and technical indicators their model required — and with stronger statistical validation (their model failed its own significance test).
 
 ---
 
@@ -87,22 +86,6 @@ Three complementary tests address temporal dependence in financial time series:
 1. **Block Bootstrap** (6h, 12h, 24h blocks) — p<0.0001 at all block sizes for LM-PLS; p=0.019 at 24h blocks for FWD-PLS
 2. **Diebold-Mariano** (Harvey-Leybourne-Newbold correction) — borderline p=0.065 due to class imbalance in test period
 3. **Walk-Forward** — 5/5 folds significant across bull, ATH, crash, and recovery regimes
-
----
-
-## Comparison with Zou & Herremans (2023)
-
-| | This Project | Zou & Herremans (2023) |
-|---|---|---|
-| Tweet corpus | 22.8M tweets | 9.4M tweets |
-| Granularity | Hourly | Daily |
-| Embedding | OpenAI 1536-dim | FinBERT 768-dim |
-| Model | PLS regression | CNN + SVM fusion |
-| Input modalities | **Tweets only** | Tweets + price + technical indicators |
-| Twitter-only accuracy | **70.4%** (p95 confidence) | 59.2% (task up 5%) |
-| Statistical significance | **p<0.0001 block bootstrap** | DM test fails |
-| Walk-forward | **5/5 folds significant** | Not reported |
-| Test period | **Includes 2022 crash** | 2015–2021 only |
 
 ---
 
